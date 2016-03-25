@@ -2,7 +2,7 @@
 
 cd $(dirname $0)
 
-LASTCHANGE_URL="http://commondatastorage.googleapis.com/chromium-browser-continuous/Linux_x64/LAST_CHANGE"
+LASTCHANGE_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2FLAST_CHANGE?alt=media"
 
 REVISION=$(curl -s -S $LASTCHANGE_URL)
 
@@ -13,7 +13,7 @@ if [ -d $REVISION ] ; then
   exit
 fi
 
-ZIP_URL="http://commondatastorage.googleapis.com/chromium-browser-continuous/Linux_x64/$REVISION/chrome-linux.zip"
+ZIP_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F$REVISION%2Fchrome-linux.zip?alt=media"
 
 ZIP_FILE="${REVISION}-chrome-linux.zip"
 
