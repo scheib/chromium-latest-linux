@@ -1,6 +1,6 @@
 #! /bin/bash
 
-BASEDIR=$(dirname $0)
+BASEDIR=$(dirname $(realpath $0))
 
 export CHROME_DEVEL_SANDBOX=$BASEDIR/latest/chrome_sandbox
 
