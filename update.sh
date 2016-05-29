@@ -29,3 +29,4 @@ popd
 rm -f ./latest
 ln -s $REVISION/chrome-linux/ ./latest
 
+./update_wrapper.sh
