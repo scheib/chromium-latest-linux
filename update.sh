@@ -4,9 +4,13 @@ cd $(dirname $0)
 
 LASTCHANGE_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2FLAST_CHANGE?alt=media"
 
-REVISION=$(curl -s -S $LASTCHANGE_URL)
+if [ -z "$REVISION" ]; then
+ REVISION=$(curl -s -S $LASTCHANGE_URL)
 
-echo "latest revision is $REVISION"
+  echo "latest revision is $REVISION"
+else
+  echo "Using given revision $REVISION as latest revision"
+fi
 
 if [ -d $REVISION ] ; then
   echo "already have latest version"
