@@ -2,7 +2,18 @@
 
 cd $(dirname $0)
 
-LASTCHANGE_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2FLAST_CHANGE?alt=media"
+case "$1" in
+  mac)
+    PLATFORM="mac"
+    REVISION_PREFIX="Mac"
+    ;;
+  linux | *)
+    PLATFORM="linux"
+    REVISION_PREFIX="Linux_x64"
+    ;;
+esac
+
+LASTCHANGE_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/${REVISION_PREFIX}%2FLAST_CHANGE?alt=media"
 
 REVISION=$(curl -s -S $LASTCHANGE_URL)
 
@@ -13,9 +24,9 @@ if [ -d $REVISION ] ; then
   exit
 fi
 
-ZIP_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F$REVISION%2Fchrome-linux.zip?alt=media"
+ZIP_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/${REVISION_PREFIX}%2F${REVISION}%2Fchrome-${PLATFORM}.zip?alt=media"
 
-ZIP_FILE="${REVISION}-chrome-linux.zip"
+ZIP_FILE="${REVISION}-chrome-${PLATFORM}.zip"
 
 echo "fetching $ZIP_URL"
 
@@ -27,5 +38,5 @@ echo "unzipping.."
 unzip $ZIP_FILE
 popd
 rm -f ./latest
-ln -s $REVISION/chrome-linux/ ./latest
+ln -s $REVISION/chrome-$PLATFORM/ ./latest
 
