@@ -3,17 +3,13 @@
 cd $(dirname $0)
 
 case "$1" in
-  linux)
-    PLATFORM="linux"
-    REVISION_PREFIX="Linux_x64"
-    ;;
   mac)
     PLATFORM="mac"
     REVISION_PREFIX="Mac"
     ;;
-  *)
-    echo "Please specify platform (mac or linux) as argument.";
-    exit 1
+  linux | *)
+    PLATFORM="linux"
+    REVISION_PREFIX="Linux_x64"
     ;;
 esac
 
