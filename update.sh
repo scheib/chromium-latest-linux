@@ -26,7 +26,7 @@ case $(web) in
 esac
 }
 
-TRUNK="continuous"
+TRUNK="snapshots"
 if [ -n "$1" ]; then
 OPT="$1"
 shift
