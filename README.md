@@ -1,4 +1,4 @@
-# chromium-latest-linux
+# chromium-updater
 
 ### Welcome to the Open Source Chromium Browser!
 
