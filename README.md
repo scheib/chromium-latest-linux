@@ -4,7 +4,7 @@
 
 This proyect is a fork from the orginal creator: scheib.
 
-**With these scripts you can install Chromium in your home directory**. You must have the crontab installed for the automatic updates and have the folders in English, otherwise you must edit the install script to change it for the name of your Desktop folder.
+**With these scripts you can install Chromium in your home directory**. You must have the crontab installed for the automatic updates (Next function) and have the folders in English, otherwise you must edit the install script to change it for the name of your Desktop folder.
 
 ## Instalation:
 
