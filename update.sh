@@ -26,7 +26,7 @@ touch Update_Data/Version
 touch Update_Data/Pre-Version
 touch Update_Data/Pre-Pre-Version
 touch Update_Data/Pre-Pre-Pre-Version
-touch "$HOME/.Chromium/State/UPDATING"
+touch "State/UPDATING"
 
 ZIP_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2F$REVISION%2Fchrome-linux.zip?alt=media"
 
@@ -52,7 +52,7 @@ cat Update_Data/Version > Update_Data/Pre-Version
 echo "$REVISION" > Update_Data/Version
 OLD_VERSION=$(cat Update_Data/Pre-Pre-Pre-Version)
 rm -rf "$OLD_VERSION"
-notify-send -t 20000 -i "Icons/Chromium Updated.png" "Chromium Updated" "SChromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)"
+notify-send -t 20000 -i "Icons/Chromium Updated.png" "Chromium Updated" "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)"
 
 
 rm UPDATING
