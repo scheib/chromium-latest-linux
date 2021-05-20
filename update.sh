@@ -10,7 +10,7 @@ if [ -e "State/UPDATING" ]; then
     exit
 fi
 
-case "KernelOS" in
+case $KernelOS in
   Linux)
     PLATFORM="linux"
     REVISION_PREFIX="Linux_x64"
@@ -80,8 +80,8 @@ rm -rf "$OLD_VERSION"
 if [ KernelOS == "Linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Updated.png" "Chromium Updated" "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)" ; fi
 if [ KernelOS == "Darwin" ]; then ln -s ~/.chromium/latest/Chromium.app/ /Applications/Chromium.app && osascript -e 'display notification "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)" with title "Chromium Updated" sound name "Submarine"' ; fi
 
-rm UPDATING
+rm State/UPDATING
 if [ -e Status/REQUESTED ]; then
     ./run.sh
-    rm Status/REQUESTED
+    rm State/REQUESTED
 fi
