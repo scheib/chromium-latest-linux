@@ -1,6 +1,7 @@
 #!/bin/bash
 
 cd $(dirname $0)
+touch Update_Data/Last_AutoUpdate >> /dev/null
 LAST_UPDATE=$(cat Update_Data/Last_AutoUpdate)
 DATE=$(date +%j)
 
