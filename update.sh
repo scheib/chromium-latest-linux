@@ -1,33 +1,35 @@
 #! /bin/bash
 
 cd $(dirname $0)
+KernelOS=$(uname)
 
 #CHECK THAT IS NOT ALREDY UPDATING
 if [ -e "State/UPDATING" ]; then
-    if [ $1 == "mac" ]; then osascript -e 'display notification "Chromium is currently being updated ..." with title "Updating Chromium..." sound name "Submarine"' ; fi
-    if [ $1 == "linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Update.png" "Updating Chromium..." "Chromium is currently being updated ..." ; fi
+    if [ KernelOS == "Darwin" ]; then osascript -e 'display notification "Chromium is currently being updated ..." with title "Updating Chromium..." sound name "Submarine"' ; fi
+    if [ KernelOS == "Linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Update.png" "Updating Chromium..." "Chromium is currently being updated ..." ; fi
     exit
 fi
 
-case "$1" in
-  linux)
+case "KernelOS" in
+  Linux)
     PLATFORM="linux"
     REVISION_PREFIX="Linux_x64"
     ;;
-  mac)
+  Darwin)
     PLATFORM="mac"
     REVISION_PREFIX="Mac"
     ;;
   *)
-    echo "Please specify platform (mac or linux) as argument.";
-    exit 1
+    echo "Error identifying the Operating System. Your current system is: $KernelOS and it is not specified in the functions of this script. Please, Contact to the developer on GitHub";
+    read RESPONSE
+    exit
     ;;
 esac
 
 #CHECK IF IT ISN'T UPDATED
 if [ -e "State/UPDATING" ]; then
-    if [ $1 == "linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Update.png" "Updating Chromium..." "Chromium is currently being updated ..." ; fi
-    if [ $1 == "mac" ]; then osascript -e 'display notification "Chromium is currently being updated ..." with title "Updating Chromium..." sound name "Submarine"' ; fi
+    if [ KernelOS == "Linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Update.png" "Updating Chromium..." "Chromium is currently being updated ..." ; fi
+    if [ KernelOS == "Darwin" ]; then osascript -e 'display notification "Chromium is currently being updated ..." with title "Updating Chromium..." sound name "Submarine"' ; fi
     exit 0
 fi
 
@@ -38,8 +40,8 @@ REVISION=$(curl -s -S $LASTCHANGE_URL)
 
 #CHECK IF IT'S ALREDY UPDATED
 if [ -d $REVISION ] ; then
-    if [ $1 == "linux" ]; then notify-send -t 8000 -i "$(pwd)/Icons/Chromium Updated.png" "Updated (Rev.: $REVISION)" "Chromium is in its Latest Version" ; fi
-    if [ $1 == "mac" ]; then osascript -e 'display notification "Chromium is in its Latest Version" with title "Updated (Rev.: $REVISION)" sound name "Submarine"' ; fi
+    if [ KernelOS == "Linux" ]; then notify-send -t 8000 -i "$(pwd)/Icons/Chromium Updated.png" "Updated (Rev.: $REVISION)" "Chromium is in its Latest Version" ; fi
+    if [ KernelOS == "Darwin" ]; then osascript -e 'display notification "Chromium is in its Latest Version" with title "Updated (Rev.: $REVISION)" sound name "Submarine"' ; fi
   exit
 fi
 
@@ -66,7 +68,7 @@ rm $ZIP_FILE
 popd
 #rm -rf ./latest/*
 rm -f ./latest
-ln -s $REVISION/chrome-linux/ ./latest
+ln -s $REVISION/chrome-$PLATAFORM/ ./latest
 
 cat Update_Data/Pre-Pre-Version > Update_Data/Pre-Pre-Pre-Version
 cat Update_Data/Pre-Version > Update_Data/Pre-Pre-Version
@@ -75,8 +77,8 @@ echo "$REVISION" > Update_Data/Version
 OLD_VERSION=$(cat Update_Data/Pre-Pre-Pre-Version)
 rm -rf "$OLD_VERSION"
 
-if [ $1 == "linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Updated.png" "Chromium Updated" "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)" ; fi
-if [ $1 == "mac" ]; then ln -s ~/.chromium/latest/Chromium.app/ /Applications/Chromium.app && osascript -e 'display notification "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)" with title "Chromium Updated" sound name "Submarine"' ; fi
+if [ KernelOS == "Linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Updated.png" "Chromium Updated" "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)" ; fi
+if [ KernelOS == "Darwin" ]; then ln -s ~/.chromium/latest/Chromium.app/ /Applications/Chromium.app && osascript -e 'display notification "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)" with title "Chromium Updated" sound name "Submarine"' ; fi
 
 rm UPDATING
 if [ -e Status/REQUESTED ]; then
