@@ -16,7 +16,7 @@ sudo bash ./run.sh
   And with this it installs chromium in ~/.Chromium and creates desktop's shortcut to the application.
 
 ## Enable Automaticals updates:
-  If you're Mac OS, you have to manually edit the crontab to enable automatic updates. If you're in GNU/Linux, you don't have to do anything, it's enable by defect. Let's begin (for Mac OS's users). First, you have to open a terminal and type the following:
+  If you're on Mac OS, you have to manually edit the crontab to enable automatic updates. If you're on GNU/Linux, you don't have to do anything, it's enable by defect. Let's begin (for Mac OS's users). First, you have to open a terminal and type the following:
   ```
   whoami
   ```
@@ -28,7 +28,7 @@ sudo bash ./run.sh
  ```
  * * * * 1 /Users/YOUR_USER/.chromium/UpdateAtSturtap.sh
  ```
-  Replacing "YOUR_NAME" with your username that said when you executed "whoami". Now you press control+"o" and control+"x" without the double quotes. And now you can close it.
+  Replacing "YOUR_NAME" with your username that said when you executed "whoami". Now you press control+"o" and Enter and control+"x" without the double quotes. And now you can close it.
   
 ## Ready To Go!
 
