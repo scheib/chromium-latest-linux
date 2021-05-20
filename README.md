@@ -26,7 +26,7 @@ sudo bash ./run.sh
  ```
  It will open a command line text editor, so you have to type this:
  ```
- * * * * 1 /Users/YOUR_USER/.chromium/UpdateAtSturtap.sh
+ * * * * 1 /Users/YOUR_USER/.chromium/AutoUpdate.sh
  ```
   Replacing "YOUR_NAME" with your username that said when you executed "whoami". Now you press control+"o" and Enter and control+"x" without the double quotes. And now you can close it.
   
