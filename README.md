@@ -4,7 +4,7 @@
 
 This proyect is a fork from the orginal creator: scheib.
 
-**With these scripts you can install Chromium in your home directory**. You must have the crontab installed for the automatic updates (Next function), have installed the function "notify-send" and have the folders of your home directory in English, otherwise you must edit the install script to change it for the name of your Desktop folder.
+**With these scripts you can install and Update Chromium in your home directory in GNU/Linux and Mac OS X**. You must have the crontab installed for the automatic updates (Next function), have installed the function "notify-send" and have the folders of your home directory in English, otherwise you must edit the install script to change it for the name of your Desktop folder.
 
 ## Instalation:
 
@@ -13,8 +13,23 @@ This proyect is a fork from the orginal creator: scheib.
 sudo bash ./update.sh
 sudo bash ./run.sh
 ```
-And with this it installs chromium in ~/.Chromium and creates desktop's shortcut to the application.
+  And with this it installs chromium in ~/.Chromium and creates desktop's shortcut to the application.
 
+## Enable Automaticals updates:
+  If you're Mac OS, you have to manually edit the crontab to enable automatic updates. If you're in GNU/Linux, you don't have to do anything, it's enable by defect. Let's begin (for Mac OS's users). First, you have to open a terminal and type the following:
+  ```
+  whoami
+  ```
+  You have to anote or remember that because we're going to use it later. Now type the following:
+  ```
+  sudo export VISUAL=nano; crontab -e
+ ```
+ It will open a command line text editor, so you have to type this:
+ ```
+ * * * * 1 /Users/YOUR_USER/.chromium/UpdateAtSturtap.sh
+ ```
+  Replacing "YOUR_NAME" with your username that said when you executed "whoami". Now you press control+"o" and control+"x" without the double quotes. And now you can close it.
+  
 ## Ready To Go!
 
 Thank you! All the aportation and comments are good recived!.
