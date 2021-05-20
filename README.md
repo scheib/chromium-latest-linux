@@ -1,4 +1,4 @@
-# chromium-updater
+# chromium-updater For GNU/Linux and Mac OS X    ![image](https://user-images.githubusercontent.com/84420737/118993821-360ec700-b95c-11eb-8d6d-b07f7d79ff53.png)
 
 ### Welcome to the Open Source Chromium Browser!
 
