@@ -68,7 +68,7 @@ rm $ZIP_FILE
 popd
 #rm -rf ./latest/*
 rm -f ./latest
-ln -s $REVISION/chrome-$PLATAFORM/ ./latest
+ln -s $REVISION/chrome-$PLATFORM/ ./latest
 
 cat Update_Data/Pre-Pre-Version > Update_Data/Pre-Pre-Pre-Version
 cat Update_Data/Pre-Version > Update_Data/Pre-Pre-Version
