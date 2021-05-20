@@ -30,6 +30,11 @@ sudo bash ./run.sh
  ```
   Replacing "YOUR_NAME" with your username that said when you executed "whoami". Now you press control+"o" and Enter and control+"x" without the double quotes. And now you can close it.
   
+  If you don't want to edit your crontab, you have to manually update it whenever you want whit this command.
+  ```
+  bash ~/.chromium/update.sh
+  ```
+  
 ## Ready To Go!
 
 Thank you! All the aportation and comments are good recived!.
