@@ -1,6 +1,6 @@
 # Chromium Updater For Mac and Linux            ![image](https://user-images.githubusercontent.com/84420737/118993821-360ec700-b95c-11eb-8d6d-b07f7d79ff53.png)
 
-### Welcome to the Open Source Chromium Browser! for GNU/Linux and Mac OS X
+### Welcome to the Open Source Chromium Browser!
 
 This proyect is a fork from the orginal creator: scheib.
 
