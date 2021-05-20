@@ -4,7 +4,7 @@ cd $(dirname $0)
 
 #COMPRUEBA QUE NO ESTÉ ACTUALIZANDO
 if [ -e "./State/UPDATING" ]; then
-    notify-send -t 20000 -i "./Icons/Chromium Update.png" "Updating Chromium..." "Chromium is currently being updated ..."
+    notify-send -t 20000 -i "$(pwd)/Icons/Chromium Update.png" "Updating Chromium..." "Chromium is currently being updated ..."
     exit 0
 fi
 
@@ -17,7 +17,7 @@ REVISION=$(curl -s -S $LASTCHANGE_URL)
 #COMPRUEBA SI ESTÁ ACTUALIZADO
 if [ -d $REVISION ] ; then
 #    echo "already have latest version"
-    notify-send -t 8000 -i "./Icons/Chromium Updated.png" "Updated (Rev.: $REVISION)" "Chromium is in its Latest Version"
+    notify-send -t 8000 -i "$(pwd)/Icons/Chromium Updated.png" "Updated (Rev.: $REVISION)" "Chromium is in its Latest Version"
   exit
 fi
 
@@ -52,7 +52,7 @@ cat Update_Data/Version > Update_Data/Pre-Version
 echo "$REVISION" > Update_Data/Version
 OLD_VERSION=$(cat Update_Data/Pre-Pre-Pre-Version)
 rm -rf "$OLD_VERSION"
-notify-send -t 20000 -i "Icons/Chromium Updated.png" "Chromium Updated" "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)"
+notify-send -t 20000 -i "$(pwd)/Icons/Chromium Updated.png" "Chromium Updated" "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)"
 
 
 rm ./State/UPDATING
