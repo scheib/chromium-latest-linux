@@ -2,7 +2,7 @@
 
 ### Welcome to the Open Source Chromium Browser!
 
-This proyect is a fork from the orginal creator: scheib.
+This project is a fork from the original creator: scheib. And I have to say thanks to gamgi to give me the idea for the Mac OS implementation in the functionality of this script.
 
 **With these scripts you can install and Update Chromium in your home directory in GNU/Linux and Mac OS X**. You must have the crontab installed for the automatic updates (Next function), have installed the function "notify-send" and have the folders of your home directory in English, otherwise you must edit the install script to change it for the name of your Desktop folder.
 
