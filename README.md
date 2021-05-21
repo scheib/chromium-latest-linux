@@ -8,13 +8,13 @@ This project is a fork from the original creator: scheib. And I have to say than
 
 ## Instalation:
 
-  For the instalation you have to download this package and unzip it. After that you have to select the unziped folder, move it to ~/.Chromium (changing te name of that folder to ".chromium" and put it in your home directory) and from a terminal, execute this line of code in that folder:
+  For the instalation you have to download this package and unzip it. After that you have to select the unziped folder, move it to ~/.Chromium (changing te name of that folder to ".chromium" and put it in your home directory) and from a terminal, execute this line of code:
 ```
 cd ~/.chromium/
 sudo bash ./update.sh
 sudo bash ./run.sh
 ```
-  And with this it installs chromium in ~/.Chromium .
+  And with this it installs chromium in ~/.Chromium and open it when it finalizes.
   
 ## Enable Automaticals updates:
   If you're on Mac OS, you have to manually edit the crontab to enable automatic updates. If you're on GNU/Linux, you have to do it too, but in the future the script will be automatically. Let's begin. First, you have to open a terminal and type the following:
