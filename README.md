@@ -8,7 +8,7 @@ This proyect is a fork from the orginal creator: scheib.
 
 ## Instalation:
 
-  For the instalation you have to download this package and unzip it. After that you have to go to the unziped folder, copy it to ~/.Chromium and from a terminal, execute this line of code in that folder:
+  For the instalation you have to download this package and unzip it. After that you have to select the unziped folder, move it to ~/.Chromium and from a terminal, enter in that folder and execute this line of code in that folder:
 ```
 sudo bash ./update.sh
 sudo bash ./run.sh
@@ -16,7 +16,7 @@ sudo bash ./run.sh
   And with this it installs chromium in ~/.Chromium and creates desktop's shortcut to the application.
 
 ## Enable Automaticals updates:
-  If you're on Mac OS, you have to manually edit the crontab to enable automatic updates. If you're on GNU/Linux, you have to do it too, but in the future the script will be automatically do. Let's begin. First, you have to open a terminal and type the following:
+  If you're on Mac OS, you have to manually edit the crontab to enable automatic updates. If you're on GNU/Linux, you have to do it too, but in the future the script will be automatically. Let's begin. First, you have to open a terminal and type the following:
   ```
   whoami
   ```
