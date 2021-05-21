@@ -8,8 +8,9 @@ This proyect is a fork from the orginal creator: scheib.
 
 ## Instalation:
 
-  For the instalation you have to download this package and unzip it. After that you have to select the unziped folder, move it to ~/.Chromium and from a terminal, enter in that folder and execute this line of code in that folder:
+  For the instalation you have to download this package and unzip it. After that you have to select the unziped folder, move it to ~/.Chromium (changing te name of that folder to ".chromium" and put it in your home directory) and from a terminal, execute this line of code in that folder:
 ```
+cd ~/.chromium/
 sudo bash ./update.sh
 sudo bash ./run.sh
 ```
@@ -24,15 +25,19 @@ sudo bash ./run.sh
   ```
   sudo export VISUAL=nano; crontab -e
  ```
- It will open a command line text editor, so you have to type this:
+ It will open a command line text editor, so, if you have Mac OS you have to type this:
  ```
  * * * * 1 /Users/YOUR_USER/.chromium/AutoUpdate.sh
  ```
+ And also, if you have GNU/Linux you have to type this:
+ ```
+ * * * * 1 /home/YOUR_USER/.chromium/AutoUpdate.sh
+ ```
   Replacing "YOUR_NAME" with your username that said when you executed "whoami". Now you press control+"o" and Enter and control+"x" without the double quotes. And now you can close it.
   
-  If you don't want to edit your crontab, you have to manually update it whenever you want whit this command.
+  If you don't want to edit your crontab or simply you want to update it manually, you can do it with this command whenever you want:
   ```
-  bash YOR_CHROMIUM_DIRECTORY/update.sh
+  bash ~/.chromium/update.sh
   ```
   Changing "YOR_CHROMIUM_DIRECTORY" to your chromium folder location without the double quotes. 
   
