@@ -4,7 +4,7 @@ clear
 echo "#########################################################################"
 echo "#        If you are sure what you want to do press Enter.               #"
 echo "# WARNING: This Script deletes the last downloaded version of Chromium. #"
-echo "#            But it does stop the automatical updates.                  #"
+echo "#           But it doesn't stop the automatical updates.                #"
 echo "#             Edit the crontab manually to avoid that                   #"
 echo "#########################################################################"
 read READY
