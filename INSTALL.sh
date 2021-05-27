@@ -22,7 +22,7 @@ if [ $KernelOS == "Darwin" ]; then
   echo "Are you ready? Did you copy the line with Ctrl+'C'?"
   echo ""
   read PAUSE
-  export VISUAL=nano && sudo crontab -e
+  export VISUAL=nano && crontab -e
 fi
 
 if [ $KernelOS == "Linux" ]; then 
