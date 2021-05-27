@@ -34,7 +34,10 @@ if [ $KernelOS == "Linux" ]; then
   fi
 
 clear
-echo "Instalación Terminada. Para cerrar esta ventana, cierre Chromium"
-bash ~/.chromium/update.sh && bash ~/.chromium/run.sh
+echo "Descargando..."
+echo ""
 
+bash ~/.chromium/update.sh
+clear
+bash ~/.chromium/run.sh &
 exit
