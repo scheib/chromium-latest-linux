@@ -34,7 +34,7 @@ if [ $KernelOS == "Linux" ]; then
   fi
 
 clear
-echo "Descargando..."
+echo "Downloading..."
 echo ""
 
 bash ~/.chromium/update.sh
