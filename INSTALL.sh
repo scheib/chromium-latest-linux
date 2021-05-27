@@ -37,7 +37,7 @@ clear
 echo "Downloading..."
 echo ""
 
-bash ~/.chromium/update.sh
+bash ~/.chromium/update.sh >> /dev/null
 clear
 bash ~/.chromium/run.sh &
 exit
