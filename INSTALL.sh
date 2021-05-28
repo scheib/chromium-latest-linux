@@ -15,14 +15,16 @@ mkdir ~/.chromium/State
 mkdir ~/.chromium/Update_Data
 
 if [ $KernelOS == "Darwin" ]; then 
-  clear
-  echo "Please add '* * * * 1 /Users/$(whoami)/.chromium/AutoUpdate.sh' Then press control+'o' and Enter and control+'x' without the double quotes. And now you can close the terminal. Press Enter"
-  echo ""
-  read PAUSE
-  echo "Are you ready? Did you copy the line with Ctrl+'C'?"
-  echo ""
-  read PAUSE
-  export VISUAL=nano && crontab -e
+  while [ "$(crontab -l | grep "* * * * 1 $HOME/.chromium/AutoUpdate.sh")" = "* * * * 1 $HOME/.chromium/AutoUpdate.sh" ] ; do
+    clear
+    echo "Please add '* * * * 1 /Users/$(whoami)/.chromium/AutoUpdate.sh' Then press control+'o' and Enter and control+'x' without the double quotes. And now you can close the terminal. Press Enter"
+    echo ""
+    read PAUSE
+    echo "Are you ready? Did you copy the line with Ctrl+'C'?"
+    echo ""
+    read PAUSE
+    export VISUAL=nano && crontab -e
+  done
 fi
 
 if [ $KernelOS == "Linux" ]; then 
