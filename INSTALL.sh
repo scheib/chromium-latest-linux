@@ -43,7 +43,7 @@ fi
 if [ $KernelOS == "Linux" ]; then
 
   #CREATE CHROMIUM SHORTCUT
-    echo "[Desktop Entry] " >> "/usr/share/applications/Chromium.desktop"
+    echo "[Desktop Entry] " > "/usr/share/applications/Chromium.desktop"
     echo "Version=1.0 " >> "/usr/share/applications/Chromium.desktop"
     echo "Type=Application " >> "/usr/share/applications/Chromium.desktop"
     echo "Name=Chromium " >> "/usr/share/applications/Chromium.desktop"
@@ -55,7 +55,7 @@ if [ $KernelOS == "Linux" ]; then
     echo "StartupNotify=false " >> "/usr/share/applications/Chromium.desktop"
     
   #CREATE RESTORE CHROMIUM SHORTCUT
-    echo "[Desktop Entry]" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "[Desktop Entry]" > "/usr/share/applications/Restore Chromium.desktop"
     echo "Version=1.0" >> "/usr/share/applications/Restore Chromium.desktop"
     echo "Type=Application" >> "/usr/share/applications/Restore Chromium.desktop"
     echo "Name=Restore Chromium" >> "/usr/share/applications/Restore Chromium.desktop"
