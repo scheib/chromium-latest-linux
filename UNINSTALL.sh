@@ -1,3 +1,4 @@
+#!/bin/bash
 if [ -d ~/.chromium ]; then
   echo ""
   echo "There is no Chromium installation on this user."
@@ -7,7 +8,7 @@ else
   rm -rf ~/.chromium 
   sudo rm /usr/bin/chromium
   clear
-  while ( "$(cat "/var/spool/cron/crontabs/$(whoami)" | grep "* * * * 1 $HOME/.chromium/AutoUpdate.sh")" = "* * * * 1 $HOME/.chromium/AutoUpdate.sh" ); do
+  while [ "$(crontab -l | grep "* * * * 1 $HOME/.chromium/AutoUpdate.sh")" = "* * * * 1 $HOME/.chromium/AutoUpdate.sh" ] ; do
     echo ""
     echo "   Please, delete the chromium auto-update line from the crontab."
     echo "   To do that, you have to delete it manually."
