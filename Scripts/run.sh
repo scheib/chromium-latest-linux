@@ -18,7 +18,7 @@ fi
 
 case "$KernelOS" in
   Linux)
-    $BASEDIR/latest/chrome --user-data-dir="$BASEDIR/user-data-dir" $* &> /dev/null &
+    $BASEDIR/latest/chrome --user-data-dir="$BASEDIR/user-data-dir" $* >> /dev/null &
     ;;
   Darwin)
     open $BASEDIR/latest/chromium.app
