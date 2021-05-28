@@ -1,10 +1,5 @@
 #!/bin/bash
 if [ -d ~/.chromium ]; then
-  echo ""
-  echo "There is no Chromium installation on this user."
-  read PAUSE
-  exit
-else
   rm -rf ~/.chromium 
   sudo rm /usr/bin/chromium
   if [ $KernelOS == "Darwin" ]; then rm -f /Applications/Chromium.app ; fi
@@ -27,5 +22,10 @@ else
   done
   echo ""
   echo "Great! Finished. Your user doesn't have chromium anymore. Good Bye!"
+  exit
+else
+  echo ""
+  echo "There is no Chromium installation on this user."
+  read PAUSE
   exit
 fi
