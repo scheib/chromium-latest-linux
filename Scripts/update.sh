@@ -78,7 +78,7 @@ OLD_VERSION=$(cat Update_Data/Pre-Pre-Pre-Version)
 rm -rf "$OLD_VERSION"
 
 if [ $KernelOS == "Linux" ]; then notify-send -t 20000 -i "$(pwd)/Icons/Chromium Updated.png" "Chromium Updated" "Chromium has been Successfully Updated. Chromium is in its Latest Version ($REVISION)" ; fi
-if [ $KernelOS == "Darwin" ]; then rm -rf /Applications/Chromium.app && ln -s $(pwd)/latest/Chromium.app/ /Applications/Chromium.app && osascript -e 'display notification "Chromium has been Successfully Updated. Chromium is in its Latest Version " with title "Chromium Updated" sound name "Submarine"' ; fi
+if [ $KernelOS == "Darwin" ]; then osascript -e 'display notification "Chromium has been Successfully Updated. Chromium is in its Latest Version " with title "Chromium Updated" sound name "Submarine"' ; fi
 
 rm State/UPDATING
 if [ -e Status/REQUESTED ]; then
