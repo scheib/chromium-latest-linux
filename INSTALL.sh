@@ -21,6 +21,7 @@ bash ~/.chromium/update.sh >> /dev/null
 clear
 
 if [ $KernelOS == "Darwin" ]; then 
+  ln -s ~/.chromium/latest/Chromium.app/ /Applications/Chromium.app 
   while [ "$(crontab -l | grep "* * * * 1 $HOME/.chromium/AutoUpdate.sh")" = "* * * * 1 $HOME/.chromium/AutoUpdate.sh" ] || [ "$AUTO" != "s" ] || [ "$AUTO" != "S" ]; do
     clear
     echo ""
@@ -39,7 +40,32 @@ if [ $KernelOS == "Darwin" ]; then
   done
 fi
 
-if [ $KernelOS == "Linux" ]; then 
+if [ $KernelOS == "Linux" ]; then
+
+  #CREATE CHROMIUM SHORTCUT
+    echo "[Desktop Entry] " >> "/usr/share/applications/Chromium.desktop"
+    echo "Version=1.0 " >> "/usr/share/applications/Chromium.desktop"
+    echo "Type=Application " >> "/usr/share/applications/Chromium.desktop"
+    echo "Name=Chromium " >> "/usr/share/applications/Chromium.desktop"
+    echo "Comment=Chromium Web Browser " >> "/usr/share/applications/Chromium.desktop"
+    echo "Exec=chromium " >> "/usr/share/applications/Chromium.desktop"
+    echo "Icon=$HOME/.chromium/Icons/Chromium.png" >> "/usr/share/applications/Chromium.desktop"
+    echo "Path=$HOME/.chromium" >> "/usr/share/applications/Chromium.desktop"
+    echo "Terminal=false " >> "/usr/share/applications/Chromium.desktop"
+    echo "StartupNotify=false " >> "/usr/share/applications/Chromium.desktop"
+    
+  #CREATE RESTORE CHROMIUM SHORTCUT
+    echo "[Desktop Entry]" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Version=1.0" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Type=Application" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Name=Restore Chromium" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Comment=Restore the Last Version of Chromium" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Exec=bash $HOME/.Chromium/Remove\ Last\ Version.sh" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Icon=$HOME/.Chromium/Icons/Restore Chromium.png" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Path=" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "Terminal=true" >> "/usr/share/applications/Restore Chromium.desktop"
+    echo "StartupNotify=true" >> "/usr/share/applications/Restore Chromium.desktop"
+
   clear
   echo ""
   echo "  If you don't want to have autoupdates, press 's' and Enter. Otherwise, press Enter"
@@ -52,7 +78,6 @@ if [ $KernelOS == "Linux" ]; then
   sudo rm -r /tmp/cronchromium
   sudo cp $BASEDIR/Scripts/Aplication "/usr/bin/chromium"
 fi
- 
  
 bash ~/.chromium/run.sh &
 exit
