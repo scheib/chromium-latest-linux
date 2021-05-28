@@ -74,11 +74,15 @@ if [ $KernelOS == "Linux" ]; then
   echo ""
   read AUTO
   if [  "$AUTO" = "n" ] || [ "$AUTO" = "N" ]; then bash ~/.chromium/run.sh & exit ; fi
+  echo ""
+  echo "  Please enter the password..."
+  echo ""
   sudo cat "/var/spool/cron/crontabs/$(whoami)" > /tmp/cronchromium 
   sudo echo "* * * * 1 $HOME/.chromium/AutoUpdate.sh" >> /tmp/cronchromium
   sudo cp -r /tmp/cronchromium "/var/spool/cron/crontabs/$(whoami)"
   sudo rm -r /tmp/cronchromium
   sudo cp $BASEDIR/Scripts/Aplication "/usr/bin/chromium"
+  sudo chmod +x /usr/bin/chromium
 fi
  
 bash ~/.chromium/run.sh &
