@@ -2,8 +2,8 @@
 if [ -d ~/.chromium ]; then
   rm -rf ~/.chromium 
   sudo rm /usr/bin/chromium
-  if [ $KernelOS == "Darwin" ]; then rm -rf /Applications/Chromium.app ; fi
-  if [ $KernelOS == "Linux" ]; then rm -rf ~/.local/share/applications/Chromium.desktop && rm -rf ~/.local/share/applications/Restore\ Chromium.desktop ; fi
+  if [ $KernelOS == "Darwin" ]; then sudo rm -rf /Applications/Chromium.app ; fi
+  if [ $KernelOS == "Linux" ]; then sudo rm -rf ~/.local/share/applications/Chromium.desktop && sudo rm -rf ~/.local/share/applications/Restore\ Chromium.desktop ; fi
   clear
   while [ "$(crontab -l | grep "* * * * 1 $HOME/.chromium/AutoUpdate.sh")" = "* * * * 1 $HOME/.chromium/AutoUpdate.sh" ] ; do
     echo ""
