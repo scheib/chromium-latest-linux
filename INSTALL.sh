@@ -63,7 +63,7 @@ if [ $KernelOS == "Linux" ]; then
     echo "Name=Restore Chromium" >> ~/.local/share/applications/Restore\ Chromium.desktop
     echo "Comment=Restore the Last Version of Chromium" >> ~/.local/share/applications/Restore\ Chromium.desktop
     echo "Exec=bash /home/$UserName/.chromium/Remove\ Last\ Version.sh" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    echo "Icon=/home/$UserName/.chromium/Icons/Restore\ Chromium.png" >> ~/.local/share/applications/Restore\ Chromium.desktop
+    echo "Icon=/home/$UserName/.chromium/Icons/Chromium\ Restore.png" >> ~/.local/share/applications/Restore\ Chromium.desktop
     echo "Categories=Network;WebBrowser;" >> ~/.local/share/applications/Restore\ Chromium.desktop
     echo "Path=/home/$UserName/.chromium/" >> ~/.local/share/applications/Restore\ Chromium.desktop
     echo "Terminal=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
