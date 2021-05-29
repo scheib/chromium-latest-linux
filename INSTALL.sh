@@ -72,6 +72,11 @@ if [ $KernelOS == "Linux" ]; then
     sudo echo "Terminal=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
     sudo echo "StartupNotify=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
 
+  sudo cp $BASEDIR/Scripts/Application /usr/bin/chromium
+  sudo chmod +x /usr/bin/chromium
+  sudo chmod +x ~/.local/share/applications/Chromium.desktop
+  sudo chmod +x ~/.local/share/applications/Restore\ Chromium.desktop
+
   clear
   echo ""
   echo "  If you DON'T want to have autoupdates, press 'N' and Enter. Otherwise, press Enter"
@@ -85,10 +90,6 @@ if [ $KernelOS == "Linux" ]; then
   sudo echo "* * * * 1 $HOME/.chromium/AutoUpdate.sh" >> /tmp/chron
   sudo cp -r /tmp/chron "/var/spool/cron/crontabs/$(whoami)"
   sudo rm -r /tmp/chron
-  sudo cp $BASEDIR/Scripts/Application /usr/bin/chromium
-  sudo chmod +x /usr/bin/chromium
-  sudo chmod +x ~/.local/share/applications/Chromium.desktop
-  sudo chmod +x ~/.local/share/applications/Restore\ Chromium.desktop
 fi
  
 bash ~/.chromium/run.sh &
