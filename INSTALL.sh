@@ -69,6 +69,10 @@ if [ $KernelOS == "Linux" ]; then
     echo "Terminal=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
     echo "StartupNotify=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
 
+  clear
+  echo ""
+  echo "  Please enter the password..."
+  echo ""
   sudo cp $BASEDIR/Scripts/Application /usr/bin/chromium
   sudo chmod +x /usr/bin/chromium
   sudo chmod +x ~/.local/share/applications/Chromium.desktop
@@ -80,9 +84,6 @@ if [ $KernelOS == "Linux" ]; then
   echo ""
   read AUTO
   if [  "$AUTO" = "n" ] || [ "$AUTO" = "N" ]; then bash ~/.chromium/run.sh & exit ; fi
-  echo ""
-  echo "  Please enter the password..."
-  echo ""
   sudo cat "/var/spool/cron/crontabs/$(whoami)" > /tmp/chron 
   sudo echo "* * * * 1 $HOME/.chromium/AutoUpdate.sh" >> /tmp/chron
   sudo cp -r /tmp/chron "/var/spool/cron/crontabs/$(whoami)"
@@ -90,4 +91,6 @@ if [ $KernelOS == "Linux" ]; then
 fi
  
 bash ~/.chromium/run.sh &
+echo ""
+echo "Now, you can close the terminal."
 exit
