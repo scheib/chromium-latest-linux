@@ -2,7 +2,7 @@
 BASEDIR=$(dirname $0)
 KernelOS=$(uname)
 UserName=$(whoami)
-#CREATE THE CHROMIUM FOLDER IN THE HOME DIRECTORY AND PUT AL THE THINGS IN THERE
+
 mkdir ~/.chromium/
 
 cp $BASEDIR/Scripts/Remove\ Last\ Version.sh ~/.chromium/
@@ -15,8 +15,8 @@ mkdir ~/.chromium/State
 mkdir ~/.chromium/Update_Data
 mkdir ~/.local/share/applications
 
-sudo touch ~/.local/share/applications/Chromium.desktop
-sudo touch ~/.local/share/applications/Restore\ Chromium.desktop
+#sudo touch ~/.local/share/applications/Chromium.desktop
+#sudo touch ~/.local/share/applications/Restore\ Chromium.desktop
 
 clear
 echo "Downloading..."
@@ -46,31 +46,32 @@ fi
 
 if [ $KernelOS == "Linux" ]; then
 
+    #THE SHORTCUTS DIDN'T WORK, FOR A REASON THAT I DON'T KNOW
   #CREATE CHROMIUM SHORTCUT
-    sudo echo "[Desktop Entry] " > ~/.local/share/applications/Chromium.desktop
-    sudo echo "Version=1.0 " >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "Type=Application " >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "Name=Chromium " >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "Comment=Chromium Web Browser " >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "Exec=chromium " >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "Icon=$UserName/.chromium/Icons/Chromium.png" >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "Categories=Network;WebBrowser;" >> ~/.local/share/applications/Restore Chromium.desktop
-    sudo echo "Path=$UserName/.chromium" >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "Terminal=false " >> ~/.local/share/applications/Chromium.desktop
-    sudo echo "StartupNotify=false " >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "[Desktop Entry] " > ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Version=1.0 " >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Type=Application " >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Name=Chromium " >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Comment=Chromium Web Browser " >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Exec=chromium " >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Icon=/home/$UserName/.chromium/Icons/Chromium.png" >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Categories=Network;WebBrowser;" >> ~/.local/share/applications/Restore Chromium.desktop
+#    sudo echo "Path=/home/$UserName/.chromium" >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "Terminal=false " >> ~/.local/share/applications/Chromium.desktop
+#    sudo echo "StartupNotify=false " >> ~/.local/share/applications/Chromium.desktop
     
   #CREATE RESTORE CHROMIUM SHORTCUT
-    sudo echo "[Desktop Entry]" > ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Version=1.0" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Type=Application" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Name=Restore Chromium" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Comment=Restore the Last Version of Chromium" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Exec=bash $UserName/.Chromium/Remove\ Last\ Version.sh" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Icon=$UserName/.Chromium/Icons/Restore Chromium.png" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Categories=Network;WebBrowser;" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Path=" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "Terminal=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
-    sudo echo "StartupNotify=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "[Desktop Entry]" > ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Version=1.0" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Type=Application" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Name=Restore Chromium" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Comment=Restore the Last Version of Chromium" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Exec=bash /home/$UserName/.Chromium/Remove\ Last\ Version.sh" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Icon=/home/$UserName/.Chromium/Icons/Restore Chromium.png" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Categories=Network;WebBrowser;" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Path=" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "Terminal=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
+#    sudo echo "StartupNotify=true" >> ~/.local/share/applications/Restore\ Chromium.desktop
 
   clear
   echo ""
@@ -85,7 +86,7 @@ if [ $KernelOS == "Linux" ]; then
   sudo echo "* * * * 1 $HOME/.chromium/AutoUpdate.sh" >> /tmp/chron
   sudo cp -r /tmp/chron "/var/spool/cron/crontabs/$(whoami)"
   sudo rm -r /tmp/chron
-  sudo cp $BASEDIR/Scripts/Aplication "/usr/bin/chromium"
+  sudo cp Scripts/Application "/usr/bin/chromium"
   sudo chmod +x /usr/bin/chromium
 fi
  
