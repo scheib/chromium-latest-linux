@@ -1,4 +1,6 @@
 #!/bin/bash
+KernelOS=$(uname)
+
 if [ -d ~/.chromium ]; then
   rm -rf ~/.chromium 
   sudo rm /usr/bin/chromium
