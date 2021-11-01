@@ -1,3 +1,5 @@
-#! /bin/bash
-cd $(dirname $0)
-./update.sh && ./run.sh
+#!/bin/sh
+
+BASEDIR="$(dirname $(realpath $(readlink -f $0)))"
+
+$BASEDIR/update.sh && $BASEDIR/run.sh

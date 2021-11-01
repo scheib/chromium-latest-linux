@@ -1,5 +1,5 @@
-#! /bin/bash
+#!/bin/sh
 
-BASEDIR=$(dirname $0)
+BASEDIR="$(dirname $(realpath $(readlink -f $0)))"
 
 $BASEDIR/latest/chrome --user-data-dir="$BASEDIR/user-data-dir" $* &> /dev/null &
