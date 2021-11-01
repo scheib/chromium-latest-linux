@@ -36,7 +36,7 @@ case "$OPT" in
 esac
 fi
 
-LASTCHANGE_URL="https://commondatastorage.googleapis.com/chromium-browser-$TRUNK/Linux/LAST_CHANGE"
+LASTCHANGE_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-$TRUNK/o/Linux_x64%2FLAST_CHANGE?alt=media"
 
 REVISION=$(out $LASTCHANGE_URL)
 
