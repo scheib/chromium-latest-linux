@@ -1,5 +1,13 @@
 #! /bin/bash
 
+function pause-for-enter () {
+    local message="$1"
+    if [ "$message" = "" ]; then message="Press enter to continue"; fi
+    read -p "$message "
+}
+
+pause-for-enter $'Warning: updating might clear profiles, etc.\n\nPress enter to continue.'
+
 cd $(dirname $0)
 
 LASTCHANGE_URL="https://www.googleapis.com/download/storage/v1/b/chromium-browser-snapshots/o/Linux_x64%2FLAST_CHANGE?alt=media"
@@ -28,4 +36,3 @@ unzip $ZIP_FILE
 popd
 rm -f ./latest
 ln -s $REVISION/chrome-linux/ ./latest
-
