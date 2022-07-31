@@ -11,7 +11,7 @@ echo "latest revision is $REVISION"
 mkdir -p /tmp/$REVISION
 pushd    /tmp/$REVISION
 
-if [ grep $REVISION -nR $DEST_DIR 2>/dev/null ] ; then
+if [ grep $REVISION -nR $DEST_DIR/chrome 2>/dev/null ] ; then
   echo "Latest version is already installed."
   exit
 fi
