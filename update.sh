@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/bash -e
 
 cd $(dirname $0)
 
@@ -25,9 +25,10 @@ fi
 
 
 echo "unzipping.."
-unzip $ZIP_FILE
+unzip -q $ZIP_FILE
 if [ -d $DEST_DIR ]; then
-  sudo tar cvfz /tmp/chromium-$(date +%Y%m%d%H%M%S).tar.gz $DEST_DIR
+  echo "creating backup.."
+  sudo tar cvfz /tmp/chromium-$(date +%Y%m%d%H%M%S).tar.gz $DEST_DIR >/dev/null
   sudo rm -rf $DEST_DIR
 fi
 sudo mv chrome-linux $DEST_DIR
